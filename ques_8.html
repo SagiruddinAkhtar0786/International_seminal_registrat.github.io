@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online resistration for international seminar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: bisque;
+
+        }
+
+        .seminar {
+            width: 60%;
+            background-color: darkslategray;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: underline;
+            line-height: 1.2;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            color: whitesmoke;
+            text-shadow: honeydew;
+            font-size: 35PX;
+        }
+
+        input#fname {
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 3px;
+            width: 90%;
+
+        }
+
+        input#mname {
+            width: 90%;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 3px;
+        }
+
+        input#lname {
+            font-size: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 3px;
+            width: 90%;
+        }
+
+        label {
+            text-transform: uppercase;
+            margin: 10px;
+            color: honeydew;
+        }
+
+        select#desig {
+            margin: 10px;
+            font-size: 18px;
+            font-family: sans-serif;
+            padding: 6px;
+            border: none;
+            border-radius: 5PX;
+            margin-left: 40px;
+        }
+
+        input {
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            padding: 6px;
+            margin: 10px;
+            /* margin-left: 100px; */
+        }
+
+        input#country {
+            margin-left: 70px;
+        }
+
+        input#Mobile {
+            margin-left: 85px;
+        }
+
+        input#Email {
+            margin-left: 95px;
+        }
+
+        input#fee {
+            margin-left: 50px;
+            color: green;
+        }
+
+        input#radio {
+            margin-left: 81px;
+        }
+
+        input.btn {
+            text-align: center;
+            width: 24%;
+            margin-left: 133px;
+            background-color: aqua;
+        }
+
+        select#currency {
+            padding: 9px;
+            border: none;
+            border-radius: 5px;
+            background-color: lightcyan;
+        }
+
+        #submit {
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            width: 20%;
+            padding: 9px;
+            margin-left: 100px;
+            background-color: cyan;
+            color: white;
+            border: none;
+            border-radius: 7px;
+        }
+
+        /* payment */
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            background-color: rgb(12, 89, 134);
+
+        }
+
+        .reset {
+            background-color: blue;
+            color: whitesmoke;
+            padding: 8px;
+            font-size: 20px;
+            width: 20%;
+            margin-left: 50px;
+            cursor: pointer;
+        }
+
+
+
+        .icon-container {
+
+            margin-left: 10px;
+            padding: 8px 0;
+            font-size: 24px;
+        }
+
+        .set {
+            background-color: rgb(56, 53, 53);
+            padding: 10px;
+        }
+
+        .btn {
+            background-color: #0b35bd;
+            color: white;
+            padding: 10px;
+            margin: 20px 112px;
+            border: none;
+            width: 40%;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .btnpay2 {
+            background-color: #0b35bd;
+            color: white;
+            padding: 10px;
+            margin: 20px 112px;
+            border: none;
+            width: 40%;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .btnpay1 {
+            background-color: #0b35bd;
+            color: white;
+            padding: 10px;
+            margin: 20px 112px;
+            border: none;
+            width: 40%;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        select#card {
+            font-size: 20px;
+            background: bisque;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        #credit {
+            display: none;
+
+        }
+
+        #debit {
+            display: none;
+        }
+
+        #dd {
+            display: none;
+        }
+
+        .btn:hover {
+            background-color: #b34b0f;
+        }
+
+        .pay-in1 {
+            margin-left: 50px;
+        }
+
+        .pay-in2 {
+            margin-left: 46px;
+        }
+
+        .pay-in3 {
+            margin-left: 79px;
+        }
+
+        .pay-in4 {
+            margin-left: 95px;
+        }
+
+        .pay-in5 {
+            margin-left: 138px;
+        }
+
+        .cr-2 {
+            margin-left: 27px;
+        }
+
+        .cr-3 {
+            margin-left: 73px;
+        }
+
+        .cr-4 {
+            margin-left: 88px;
+        }
+
+        .cr-5 {
+            margin-left: 131px;
+        }
+
+        span {
+            /* display: bolck; */
+            color: red;
+            font-weight: bold;
+            /* margin-left: 290px; */
+        }
+
+        .heading {
+            padding: 5px;
+            background-color: rgb(25, 24, 31);
+        }
+
+        select#hotelid {
+            background-color: darkgray;
+            /* font-size: 16px; */
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="seminar">
+        <div class="heading">
+            <h2>Online registration for international seminar</h2>
+
+        </div>
+        <div class="form-details">
+            <form action="" method="post" name="forms" id="form">
+                <div class="form-group" style="display: flex;">
+                    <label for="#">participant Name : </label>
+                    <div class="names">
+
+                        <input type="text" name="fname" id="fname" placeholder="first name">
+                        <br>
+                        <span id="firstname"></span>
+                    </div>
+
+                    <div class="names">
+                        <input type="text" name="mname" id="mname" placeholder="middle name">
+
+                    </div>
+
+                    <div class="names">
+
+                        <input type="text" name="lname" id="lname" placeholder="last name">
+                        <br>
+                        <span id="lastname"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="#">Gender : </label>
+                    <input type="radio" name="mark" id="radio" value="Male">
+                    <label for="Male">Male</label> &nbsp;&nbsp;
+                    <input type="radio" name="mark" id="radio1" value="Female">
+                    <label for="Female">Female</label>
+                    <br>
+                    <span id="rad"></span>
+
+                </div>
+                <div class="designation">
+                    <label for="">designation : </label>
+                    <select name="desig" id="desig">
+
+                        <option class="members" value="student">STUDENT</option>
+                        <option class="members" value="feculty-members">FACULTY-MEMBERS</option>
+                        <option class="members" value="professionals">PROFESSIONALS</option>
+                        <option class="members" value="company-representative">COMPANY-REPRESENTATIVE</option>
+                        <option class="members" value="firm-representative">FIRM--REPRESENTATIVE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Country : </label>
+                    <input type="text" name="country" id="country" placeholder="country">
+                    <br>
+                    <span id="ctry"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">mobile : </label>
+                    <input type="text" name="mobile" id="Mobile" placeholder="mobile-number">
+                    <br>
+                    <span id="mobile-number"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">email : </label>
+                    <input type="text" name="email" id="Email" placeholder="email">
+                    <br>
+                    <span id="emailid"></span>
+                </div>
+
+
+                <div class="form-gropup">
+                    <label for="#">Regi._fee : </label>
+                    <select name="currency" id="currency" onchange="getSelectedValue();">
+                        <option value="option">Option</option>
+                        <option value="ruppee">Ruppee</option>
+                        <option value="dollar">Dollar</option>
+                    </select>
+                    <input type="text" name="fee" id="fee">
+                    <br>
+                    <span id="fee-opt"></span>
+                </div>
+
+                <table>
+                    <tr>
+                        <td>
+                            <label for="hotels">hotels</label>
+                            <select name="hotelname" id="hotelid">
+                                <option value="hotal1">HOTEL HAYAT</option>
+                                <option value="hotal2">HOTEL RITZ</option>
+                                <option value="hotal3">HOTEL MAURYA</option>
+                                <option value="hotal4">HOTEL MARRIOTT</option>
+                            </select>
+                        </td>
+                        <td>
+
+                            <input type="checkbox" id="single" name="hotel" value="Single">
+                            <label for="single">Single</label>
+                            <input type="checkbox" id="double" name="hotel" value="Double">
+                            <label for="double">Double</label>
+
+                            <!-- </td> -->
+                            <!-- <td> -->
+                            <input type="checkbox" id="lodg" name="hotel" value="Lodging">
+                            <label for="lodging">Lodging</label>
+                            <input type="checkbox" id="food" name="hotel" value="Fooding">
+                            <label for="fooding">Fooding</label><br>
+                            <!-- </td> -->
+
+                            <!-- <td> -->
+                            <input type="checkbox" id="bf" name="hotel" value="Break Fast">
+                            <label for="bf">Break Fast</label>
+                            <input type="checkbox" id="lunch" name=hotel" value="Lunch">
+                            <label for="lunch">Lunch</label>
+                            <!-- </td> -->
+                            <!-- <td> -->
+                            <input type="checkbox" id="dinner" name="hotel" value="Dinner">
+                            <label for="dinner">Dinner</label>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+
+            <div class="set">
+
+                <button id="submit">NEXT</button>
+                <input type="button" onclick="resetForm()" value="RESET" class="reset">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- payment -->
+
+    <div class="popup">
+        <h2>Pay registration fee</h2>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container pay">
+            <i class="fa fa-cc-visa" style="color:navy;"></i>
+            <i class="fa fa-cc-amex" style="color:blue;"></i>
+            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+            <i class="fa fa-cc-discover" style="color:orange;"></i>
+        </div>
+        <div class="pay">
+            <label for="choose">choose your cards</label>
+            <select name="cards" id="card" onchange="getSelectedcard();">
+
+                <option value="select">select</option>
+                <option value="debit card">debit card</option>
+                <option value="credit card">credit card</option>
+                <option value="draft">Demand Draft</option>
+            </select>
+            <br>
+        </div>
+
+        <!-- debit card -->
+
+        <div id="debit">
+            <div class="pay">
+                <label for="dname">Name on Card</label>
+                <input class="pay-in1" type="text" id="dcname" name="cardname" placeholder="name of card holder">
+                <br>
+                <span id="dcholder"></span>
+
+            </div>
+            <div class="pay">
+                <label for="dnum">Debit card NO.</label>
+                <input class="pay-in2" type="text" id="ddnum" name="cardnumber" placeholder="1111-2222-3333-4444"> <br>
+                <br>
+                <span id="dnumber"></span>
+
+            </div>
+
+            <div class="pay">
+                <label for="expmonth">Exp Month</label>
+                <input class="pay-in3" type="text" id="dexpmonth" name="dexpmonth" placeholder="month">
+                <br>
+                <span id="dmonth"></span>
+
+            </div>
+            <div class="pay">
+                <label for="expyear">Exp Year</label>
+                <input class="pay-in4" type="text" id="dexpyear" name="dexpyear" placeholder="year">
+                <br>
+                <span id="dyear"></span>
+            </div>
+
+            <div class="pay">
+                <label for="cvv">CVV</label>
+                <input class="pay-in5" type="password" id="dcvv" name="dcvv" placeholder="cvv">
+                <br>
+                <span id="dsecurity"></span>
+            </div>
+            <button class="btnpay1">Pay</button>
+
+        </div>
+
+        <!-- credit card -->
+        <div id="credit" style="color: cyan;">
+            <div class="pay">
+                <label for="cname">Card holder</label>
+                <input class="pay-in1" type="text" id="cname" name="cardname" placeholder="name of card holder">
+                <br>
+                <span id="cardholder"></span>
+
+            </div>
+            <div class="pay">
+                <label for="ccnum">Credit card NO.</label>
+                <input class="cr-2" type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"> <br>
+                <br>
+                <span id="number"></span>
+
+            </div>
+
+            <div class="pay">
+                <label for="expmonth">Exp Month</label>
+                <input class="cr-3" type="text" id="expmonth" name="expmonth" placeholder="month">
+                <br>
+                <span id="month"></span>
+
+            </div>
+            <div class="pay">
+                <label for="expyear">Exp Year</label>
+                <input class="cr-4" type="text" id="expyear" name="expyear" placeholder="year">
+                <br>
+                <span id="year"></span>
+            </div>
+
+            <div class="pay">
+                <label for="cvv">CVV</label>
+                <input class="cr-5" type="password" id="cvv" name="cvv" placeholder="cvv">
+                <br>
+                <span id="security"></span>
+            </div>
+            <button class="btn">register</button>
+
+        </div>
+
+
+        <!-- demand draft -->
+
+        <div id="dd">
+            <div class="pay">
+                <label for="cname">Name of the branch that’s issuing the DD</label>
+                <input class="dd-1" type="text" id="dname" name="cardname" placeholder="name of the branch">
+                <br>
+                <span id="dholder"></span>
+
+            </div>
+            <div class="pay">
+                <label for="cname">Date of Issuing the DD</label>
+                <input class="dd-2" type="date" id="doi" name="ddate" placeholder="date of issue">
+                <br>
+                <span id="issue"></span>
+
+            </div>
+            <div class="pay">
+                <label for="cname">unique dd number</label>
+                <input class="dd-3" type="text" id="drnum" name="dnum" placeholder="DD number">
+                <br>
+                <span id="drftnum"></span>
+
+            </div>
+
+            <button class="btnpay2">submit</button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- script -->
+    <script>
+
+        function getSelectedValue() {
+            var value = document.getElementById("currency").value;
+            // console.log(value);
+            if (value === "ruppee") {
+                // document.getElementById("fee").style.display = "block";
+                document.getElementById("fee").value = " Rs. 500";
+            }
+            if (value === "dollar") {
+
+                document.getElementById("fee").value = "$ 6.78"
+            }
+        }
+
+        //  ############################################
+
+
+        var popup = document.querySelector(".popup");
+        var btn = document.querySelector("#submit");
+        var btnpay = document.querySelector(".btn");
+        var btnpay1 = document.querySelector(".btnpay1");
+        var btnpay2 = document.querySelector(".btnpay2");
+
+        var firstdiv = document.querySelector(".seminar");
+
+        btn.addEventListener("click", appear);
+
+        function appear() {
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var country = document.getElementById("country").value;
+            var Mobile = document.getElementById("Mobile").value;
+            var Email = document.getElementById("Email").value;
+            var Fee = document.getElementById("fee").value;
+
+
+            if (fname == "") {
+                document.getElementById("firstname").innerHTML = " ** please enter the first name";
+                return false;//if we dont write false the the  text will go to serrer
+            }
+
+            if (lname == "") {
+                document.getElementById("lastname").innerHTML = " ** please enter the last name";
+                return false;//if we dont write false the the  text will go to serrer
+            }
+
+            // radio button validation
+            var a = document.forms.mark;
+            for (i = 0; i < a.length - 1; i++) {
+                if (a[i].checked == false && a[i + 1].checked == false) {
+                    document.getElementById('rad').innerHTML = "** select one";
+                    return false;
+
+                }
+            }
+
+
+          
+
+            // ****************************************************************************
+            //country check
+            if (country == "") {
+                document.getElementById("ctry").innerHTML = " ** please enter the Country fields";
+                return false;//if we dont write false the the  text will go to serrer
+            }
+
+            if (!isNaN(country)) {
+                document.getElementById("ctry").innerHTML = "  ** only characters are allowed";
+                return false;
+
+            }
+            //  country validation ends
+            // ******************************************************************
+
+            // mobile validaton starts..
+            if (Mobile == "") {
+                document.getElementById("mobile-number").innerHTML = " ** please enter the Mobile number fields";
+                return false;//if we dont write false the the  text will go to serrer
+            }
+
+            if (isNaN(Mobile)) {
+                document.getElementById("mobile-number").innerHTML = "** type mismatch please use only numbers";
+                return false;
+            }
+
+            if (Mobile.length != 10) {
+                document.getElementById("mobile-number").innerHTML = "** mobile number must be of 10 digit";
+                return false;
+            }
+
+            // mobile validation ends
+
+            // *************************************************************
+
+            // email validation starts
+            if (Email == "") {
+                document.getElementById("emailid").innerHTML = " ** please enter the email fields";
+                return false;//if we dont write false the the  text will go to serrer
+            }
+
+            if (Email.indexOf('@') <= 0) {
+                document.getElementById("emailid").innerHTML = " ** @ invalid position";
+                return false;
+            }
+
+            if ((Email.charAt(Email.length - 4) != ".") && (Email.charAt(Email.length - 3) != ".")) {
+                document.getElementById("emailid").innerHTML = " ** . invalid position";
+                return false;
+            }
+
+            if (Fee == "") {
+                document.getElementById("fee-opt").innerHTML = " ** please enter the registration fee";
+                return false;
+            }
+
+            var chks = document.forms.hotel;
+            var count = 0;
+
+            for (i = 0; i < chks.length; i++) {
+                if (chks[i].checked) {
+                    count++;
+                }             
+            }
+
+            if (count < 4) {
+            
+                alert("Please select 5 CheckBoxe(s).");
+                return false;
+        }
+        //  else {
+        //     // alert(count + " CheckBoxe(s) are checked.");
+        //     // return true;
+        // }
+
+           
+            
+
+
+            popup.style.display = "block";
+            firstdiv.style.filter = "blur(3.5px)";
+
+        }
+
+
+        btnpay.addEventListener("click", disappear);
+
+        function disappear() {
+
+            // payment validation
+            var cname = document.getElementById("cname").value;
+            var ccnum = document.getElementById("ccnum").value;
+            var expmonth = document.getElementById("expmonth").value;
+            var expyear = document.getElementById("expyear").value;
+            var cvv = document.getElementById("cvv").value;
+
+
+            if (cname == "") {
+                document.getElementById("cardholder").innerHTML = " ** please enter the card holder";
+                return false;
+            }
+            if (ccnum == "") {
+                document.getElementById("number").innerHTML = " ** please enter the card number";
+                return false;
+            }
+            if (expmonth == "") {
+                document.getElementById("month").innerHTML = " ** please enter the month";
+                return false;
+            }
+            if (expyear == "") {
+                document.getElementById("year").innerHTML = " ** please enter the year";
+                return false;
+            }
+            if (cvv == "") {
+                document.getElementById("security").innerHTML = " ** please enter the CVV";
+                return false;
+            }
+
+            popup.style.display = "none";
+            firstdiv.style.filter = "blur(0px)";
+            alert("thank you you have registered successfully for this event.");
+
+        }
+        btnpay1.addEventListener("click", disappear1);
+
+        function disappear1() {
+
+            // payment validation
+            var dcname = document.getElementById("dcname").value;
+            var dnum = document.getElementById("ddnum").value;
+            var dexpmonth = document.getElementById("dexpmonth").value;
+            var dexpyear = document.getElementById("dexpyear").value;
+            var dcvv = document.getElementById("dcvv").value;
+
+
+            if (dcname == "") {
+                document.getElementById("dcholder").innerHTML = " ** please enter the card holder";
+                return false;
+            }
+            if (dnum == "") {
+                document.getElementById("dnumber").innerHTML = " ** please enter the card number";
+                return false;
+            }
+            if (dexpmonth == "") {
+                document.getElementById("dmonth").innerHTML = " ** please enter the month";
+                return false;
+            }
+            if (dexpyear == "") {
+                document.getElementById("dyear").innerHTML = " ** please enter the year";
+                return false;
+            }
+            if (dcvv == "") {
+                document.getElementById("dsecurity").innerHTML = " ** please enter the CVV";
+                return false;
+            }
+
+            popup.style.display = "none";
+            firstdiv.style.filter = "blur(0px)";
+            alert("thank you you have registered successfully for this event.");
+
+        }
+
+        btnpay2.addEventListener("click", disappear2);
+
+        function disappear2() {
+
+            // payment validation
+
+            var dname = document.getElementById("dname").value;
+            var doi = document.getElementById("doi").value;
+            var drnum = document.getElementById("drnum").value;
+
+            console.log(dname);
+            if (dname == "") {
+                document.getElementById("dholder").innerHTML = " ** please enter the draft holder";
+                return false;
+            }
+            if (doi == "") {
+                document.getElementById("issue").innerHTML = " ** please enter the issue date";
+                return false;
+            }
+            if (drnum == "") {
+                document.getElementById("drftnum").innerHTML = " ** please enter the unique draft number";
+                return false;
+            }
+
+            popup.style.display = "none";
+            firstdiv.style.filter = "blur(0px)";
+            alert("thank you you have registered successfully for this event.");
+
+        }
+
+        // onchange the cards
+
+        function getSelectedcard() {
+            var selected_value = document.getElementById("card").value;
+            // console.log(typeof (selected_value));
+            console.log(selected_value);
+
+            if (selected_value === "debit card") {
+
+                document.getElementById("debit").style.display = "block";
+                document.getElementById("credit").style.display = "none";
+                document.getElementById("dd").style.display = "none";
+
+
+
+            }
+            if (selected_value === "credit card") {
+
+                document.getElementById("credit").style.display = "block";
+                document.getElementById("debit").style.display = "none";
+                document.getElementById("dd").style.display = "none";
+            }
+            if (selected_value === "draft") {
+
+                document.getElementById("credit").style.display = "none";
+                document.getElementById("debit").style.display = "none";
+                document.getElementById("dd").style.display = "block";
+            }
+        }
+
+        function resetForm() {
+            document.getElementById("form").reset();
+        }
+
+    </script>
+
+</body>
+
+</html>
